@@ -29,18 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainerToolbarLogs = new System.Windows.Forms.SplitContainer();
-            this.checkBoxFilterStage = new System.Windows.Forms.CheckBox();
-            this.checkBoxFilterOutputConsume = new System.Windows.Forms.CheckBox();
-            this.checkBoxFilterMixer = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonStartStopServer = new System.Windows.Forms.Button();
             this.numericUpDownOSCPort = new System.Windows.Forms.NumericUpDown();
             this.dataGridViewIncomingMessages = new System.Windows.Forms.DataGridView();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filterBox = new System.Windows.Forms.TextBox();
+            this.clearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerToolbarLogs)).BeginInit();
             this.splitContainerToolbarLogs.Panel1.SuspendLayout();
             this.splitContainerToolbarLogs.Panel2.SuspendLayout();
@@ -54,14 +48,14 @@
             this.splitContainerToolbarLogs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerToolbarLogs.IsSplitterFixed = true;
             this.splitContainerToolbarLogs.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerToolbarLogs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainerToolbarLogs.Name = "splitContainerToolbarLogs";
             this.splitContainerToolbarLogs.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainerToolbarLogs.Panel1
             // 
-            this.splitContainerToolbarLogs.Panel1.Controls.Add(this.checkBoxFilterStage);
-            this.splitContainerToolbarLogs.Panel1.Controls.Add(this.checkBoxFilterOutputConsume);
-            this.splitContainerToolbarLogs.Panel1.Controls.Add(this.checkBoxFilterMixer);
+            this.splitContainerToolbarLogs.Panel1.Controls.Add(this.clearBtn);
+            this.splitContainerToolbarLogs.Panel1.Controls.Add(this.filterBox);
             this.splitContainerToolbarLogs.Panel1.Controls.Add(this.label1);
             this.splitContainerToolbarLogs.Panel1.Controls.Add(this.buttonStartStopServer);
             this.splitContainerToolbarLogs.Panel1.Controls.Add(this.numericUpDownOSCPort);
@@ -69,60 +63,27 @@
             // splitContainerToolbarLogs.Panel2
             // 
             this.splitContainerToolbarLogs.Panel2.Controls.Add(this.dataGridViewIncomingMessages);
-            this.splitContainerToolbarLogs.Size = new System.Drawing.Size(1205, 469);
-            this.splitContainerToolbarLogs.SplitterDistance = 70;
+            this.splitContainerToolbarLogs.Size = new System.Drawing.Size(803, 305);
+            this.splitContainerToolbarLogs.SplitterDistance = 45;
+            this.splitContainerToolbarLogs.SplitterWidth = 3;
             this.splitContainerToolbarLogs.TabIndex = 0;
-            // 
-            // checkBoxFilterStage
-            // 
-            this.checkBoxFilterStage.AutoSize = true;
-            this.checkBoxFilterStage.Checked = true;
-            this.checkBoxFilterStage.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxFilterStage.Location = new System.Drawing.Point(755, 12);
-            this.checkBoxFilterStage.Name = "checkBoxFilterStage";
-            this.checkBoxFilterStage.Size = new System.Drawing.Size(159, 24);
-            this.checkBoxFilterStage.TabIndex = 5;
-            this.checkBoxFilterStage.Text = "/channel/*/stage/*";
-            this.checkBoxFilterStage.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxFilterOutputConsume
-            // 
-            this.checkBoxFilterOutputConsume.AutoSize = true;
-            this.checkBoxFilterOutputConsume.Checked = true;
-            this.checkBoxFilterOutputConsume.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxFilterOutputConsume.Location = new System.Drawing.Point(453, 40);
-            this.checkBoxFilterOutputConsume.Name = "checkBoxFilterOutputConsume";
-            this.checkBoxFilterOutputConsume.Size = new System.Drawing.Size(263, 24);
-            this.checkBoxFilterOutputConsume.TabIndex = 4;
-            this.checkBoxFilterOutputConsume.Text = "/channel/*/output/consume_time";
-            this.checkBoxFilterOutputConsume.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxFilterMixer
-            // 
-            this.checkBoxFilterMixer.AutoSize = true;
-            this.checkBoxFilterMixer.Checked = true;
-            this.checkBoxFilterMixer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxFilterMixer.Location = new System.Drawing.Point(453, 12);
-            this.checkBoxFilterMixer.Name = "checkBoxFilterMixer";
-            this.checkBoxFilterMixer.Size = new System.Drawing.Size(156, 24);
-            this.checkBoxFilterMixer.TabIndex = 3;
-            this.checkBoxFilterMixer.Text = "/channel/*/mixer/*";
-            this.checkBoxFilterMixer.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 26);
+            this.label1.Location = new System.Drawing.Point(14, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Monitor Port:";
             // 
             // buttonStartStopServer
             // 
-            this.buttonStartStopServer.Location = new System.Drawing.Point(294, 15);
+            this.buttonStartStopServer.Location = new System.Drawing.Point(196, 10);
+            this.buttonStartStopServer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStartStopServer.Name = "buttonStartStopServer";
-            this.buttonStartStopServer.Size = new System.Drawing.Size(128, 42);
+            this.buttonStartStopServer.Size = new System.Drawing.Size(85, 27);
             this.buttonStartStopServer.TabIndex = 1;
             this.buttonStartStopServer.Text = "Start Server";
             this.buttonStartStopServer.UseVisualStyleBackColor = true;
@@ -130,7 +91,8 @@
             // 
             // numericUpDownOSCPort
             // 
-            this.numericUpDownOSCPort.Location = new System.Drawing.Point(138, 24);
+            this.numericUpDownOSCPort.Location = new System.Drawing.Point(92, 16);
+            this.numericUpDownOSCPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numericUpDownOSCPort.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -142,7 +104,7 @@
             0,
             0});
             this.numericUpDownOSCPort.Name = "numericUpDownOSCPort";
-            this.numericUpDownOSCPort.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDownOSCPort.Size = new System.Drawing.Size(80, 20);
             this.numericUpDownOSCPort.TabIndex = 0;
             this.numericUpDownOSCPort.Value = new decimal(new int[] {
             6250,
@@ -153,54 +115,42 @@
             // dataGridViewIncomingMessages
             // 
             this.dataGridViewIncomingMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewIncomingMessages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Time,
-            this.Address,
-            this.Data1,
-            this.Data2,
-            this.Data3});
             this.dataGridViewIncomingMessages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewIncomingMessages.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewIncomingMessages.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewIncomingMessages.Name = "dataGridViewIncomingMessages";
             this.dataGridViewIncomingMessages.RowHeadersVisible = false;
             this.dataGridViewIncomingMessages.RowTemplate.Height = 28;
             this.dataGridViewIncomingMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewIncomingMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewIncomingMessages.Size = new System.Drawing.Size(1205, 395);
+            this.dataGridViewIncomingMessages.Size = new System.Drawing.Size(803, 257);
             this.dataGridViewIncomingMessages.TabIndex = 0;
             // 
-            // Time
+            // filterBox
             // 
-            this.Time.HeaderText = "Time";
-            this.Time.Name = "Time";
+            this.filterBox.Location = new System.Drawing.Point(338, 14);
+            this.filterBox.Name = "filterBox";
+            this.filterBox.Size = new System.Drawing.Size(268, 20);
+            this.filterBox.TabIndex = 3;
+            this.filterBox.TextChanged += filterChanged;
             // 
-            // Address
+            // clearBtn
             // 
-            this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Address.HeaderText = "OSC Message Address";
-            this.Address.Name = "Address";
-            // 
-            // Data1
-            // 
-            this.Data1.HeaderText = "Data 1";
-            this.Data1.Name = "Data1";
-            // 
-            // Data2
-            // 
-            this.Data2.HeaderText = "Data 2";
-            this.Data2.Name = "Data2";
-            // 
-            // Data3
-            // 
-            this.Data3.HeaderText = "Data 3";
-            this.Data3.Name = "Data3";
+            this.clearBtn.Location = new System.Drawing.Point(655, 12);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearBtn.TabIndex = 4;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // formMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 469);
+            this.ClientSize = new System.Drawing.Size(803, 305);
             this.Controls.Add(this.splitContainerToolbarLogs);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "formMain";
             this.Text = "Caspar CG OSC Monitor";
             this.splitContainerToolbarLogs.Panel1.ResumeLayout(false);
@@ -221,14 +171,8 @@
         private System.Windows.Forms.Button buttonStartStopServer;
         private System.Windows.Forms.NumericUpDown numericUpDownOSCPort;
         private System.Windows.Forms.DataGridView dataGridViewIncomingMessages;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data3;
-        private System.Windows.Forms.CheckBox checkBoxFilterOutputConsume;
-        private System.Windows.Forms.CheckBox checkBoxFilterMixer;
-        private System.Windows.Forms.CheckBox checkBoxFilterStage;
+        private System.Windows.Forms.TextBox filterBox;
+        private System.Windows.Forms.Button clearBtn;
     }
 }
 
